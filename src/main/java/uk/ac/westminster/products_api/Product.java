@@ -1,5 +1,7 @@
 package uk.ac.westminster.products_api;
 
+import ch.qos.logback.core.util.COWArrayList;
+
 public class Product {
     public long id;
     public String name;
@@ -14,7 +16,6 @@ public class Product {
     public Long getId() {
         return id;
     }
-
 
     public void setId(long id) {
         this.id = id;

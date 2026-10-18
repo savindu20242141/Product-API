@@ -6,11 +6,13 @@ public class Customer {
     public String email;
     public Address address;
 
+    public Customer() {}
     public Customer(long id, String name, String email, Address address) {
         this.id = id;
         this.name = name;
         this.email = email;
         this.address = address;
+
     }
 
     public Long getId() {
