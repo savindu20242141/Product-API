@@ -7,13 +7,14 @@ public class PhysicalProduct extends Product {
     public PhysicalProduct() {
         super();
     }
-    public PhysicalProduct(long id, String name, double price, String downloadUrl, double fileSizeMB) {
+    public PhysicalProduct(long id, String name, double price, double weightKg, String dimensions) {
         super(id, name, price);
         this.weightKg = weightKg;
         this.dimensions = dimensions;
     }
 
     public double getWeightKg() {
+
         return weightKg;
     }
 
