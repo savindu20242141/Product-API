@@ -2,10 +2,13 @@ package uk.ac.westminster.products_api;
 
 import ch.qos.logback.core.util.COWArrayList;
 
-public class Product {
+public abstract class Product {
     public long id;
     public String name;
     public double price;
+
+    public Product(){}
+
 
     public Product(long id, String name, double price) {
         this.id = id;
@@ -13,9 +16,7 @@ public class Product {
         this.price = price;
     }
 
-    public Product() {
-
-    }
+    public abstract String getSummary();
 
     public Long getId() {
         return id;

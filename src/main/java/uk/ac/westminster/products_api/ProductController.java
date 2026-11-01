@@ -5,13 +5,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-    @RequestMapping("/products")
-    public class ProductController {
-
-        @GetMapping("{id}")
-        public Product getById(@PathVariable long id) {
-            return new Product(id, "Laptop", 999.99);
-        }
+public class ProductController {
 
     @Autowired
     private ProductService productService;
@@ -26,11 +20,6 @@ import java.util.List;
         return productService.getProductById(id).orElse(null);
     }
 
-    @PostMapping("/products")
-    public Product addProduct(@RequestBody Product product) {
-        return productService.addProduct(product);
-    }
-
     @DeleteMapping("/products/{id}")
     public void deleteProduct(@PathVariable Long id) {
         productService.deleteProduct(id);
@@ -39,5 +28,16 @@ import java.util.List;
     @GetMapping("/products/search")
     public List<Product> search(@RequestParam String name) {
         return productService.findByName(name);
+    }
+
+    // Temporary fix for Tutorial 5: Using DigitalProduct because Product is abstract
+    @PostMapping("/products")
+    public Product addProduct(@RequestBody DigitalProduct product) {
+        return productService.addProduct(product);
+    }
+
+    @GetMapping("/products/summaries")
+    public List<String> getSummaries() {
+        return productService.getAllSummaries();
     }
 }
